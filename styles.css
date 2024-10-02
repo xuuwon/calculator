@@ -1,0 +1,185 @@
+/* 모든 요소의 기본 여백 제거 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+    background-image: url('images/background-image.jpg');
+    background-size: cover;
+}
+
+/* HTML과 Body의 기본 설정 */
+html, body {
+    height: 100%;
+    display: flex; /* container를 화면 중앙에 배치하기 위해 flex 사용 */
+    justify-content: center;
+    align-items: center;
+    gap: 700px;
+}
+
+.calculator-button {
+    position: fixed;
+    top: 100px;
+    left: 50px;
+}
+
+.calculator-button:active {
+    transform: scale(0.95); /* 클릭할 때 살짝 눌리는 효과 */
+}
+
+#button {
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operator p {
+    padding-bottom: 9px;
+}
+
+.basic-buttons {
+    width: 390px; 
+    display: flex;
+    gap: 7px;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+}
+
+#red-button, #yellow-button, #green-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+}
+
+#red-button {
+    border: 1px solid rgb(163, 0, 0);
+    background-color: rgb(163, 0, 0);
+}
+
+#yellow-button {
+    border: 1px solid rgb(205, 190, 29);
+    background-color: rgb(205, 190, 29);
+}
+
+#green-button {
+    border: 1px solid rgb(0, 105, 0);
+    background-color: rgb(0, 105, 0);
+}
+
+.calculator-container {
+    display: flex; 
+    background-color: rgba(0, 0, 0, 0.815);
+    border-radius: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    padding-top: 20px;
+    padding-bottom: 35px;
+    gap: 10px;
+
+    transition: opacity 0.5s ease; /* 서서히 변화하는 애니메이션 설정 */
+}
+
+#display {
+    width: 380px; 
+    height: 230px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    overflow-x: auto; /* 가로 방향 스크롤만 허용 */
+    overflow-y: hidden; /* 세로 방향 스크롤을 감춤 */
+}
+
+#displayVariable {
+    padding-top: 40px;
+    white-space: nowrap; /* 한 줄로 표시 */
+    display: inline-block;
+    font-size: 60px;
+    font-weight: 600;
+    min-width: 0; /* 기본적으로 너비를 최소화하여 flex-end 작동 유지 */
+}
+
+/* 스크롤바 전체 영역 스타일 */
+#display::-webkit-scrollbar {
+    width: 10px; /* 스크롤바의 너비 */
+    height: 3px; /* 가로 스크롤바의 높이 */
+}
+
+/* 스크롤바 트랙(바의 배경) 스타일 */
+#display::-webkit-scrollbar-track {
+    background: #f1f1f1; /* 트랙 배경색 */
+    border-radius: 10px; /* 트랙의 둥근 모서리 */
+}
+
+/* 스크롤바 슬라이더(Thumb) 스타일 */
+#display::-webkit-scrollbar-thumb {
+    background: #dbdbdb; /* 슬라이더 색상 */
+    border-radius: 10px; /* 둥근 슬라이더 */
+}
+
+/* 스크롤바 슬라이더에 마우스를 올렸을 때의 스타일 */
+#display::-webkit-scrollbar-thumb:hover {
+    background: #8d8d8d; /* 슬라이더 색상 변경 */
+}
+
+/* 가로 스크롤바 높이 조절 (필요할 경우) */
+#display::-webkit-scrollbar-horizontal {
+    height: 3px;
+}
+
+.text {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.operator .text {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+#buttons {
+    width: 400px; 
+    height: 470px; 
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 0; /* 가로 간격은 0으로 */
+    justify-content: space-around;
+}
+
+.button {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background-color: rgb(255, 166, 58);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: rgb(125, 125, 125);
+}
+
+.button:active {
+    background-color: rgb(237, 237, 237);
+}
+
+.function {
+    background-color: #a0a0a0;
+}
+
+.number, .dot {
+    background-color: #353535;
+}
+
+.opacity {
+    opacity: 0; /* 사라질 때 투명하게 만듦 */
+    pointer-events: none; /* 클릭 비활성화 */
+}
