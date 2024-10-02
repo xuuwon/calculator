@@ -153,7 +153,7 @@ buttons.forEach(function (button) {
     }
 });
 
-// calBtn 클릭 시 계산기 보여줌
+// calBtn 클릭 시 계산기 토글 기능!
 calBtn.addEventListener('click', function() {
     container.classList.toggle('opacity');
 })
