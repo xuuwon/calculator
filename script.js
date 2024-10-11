@@ -15,7 +15,6 @@ let firstOperand = null;
 let operator = null;
 let secondOperand = null;
 let shouldClearDisplay = false; // 연산할 때 사용할 것 -> 연산자가 눌린 직후면 true, 아니면 false
-let confirmReverse = false; // reverse 버튼이 눌렸는지
 
 let result = 0;
 
@@ -57,14 +56,11 @@ const calculate = function () {
     operator = null; // 연산자 비우기
 
     shouldClearDisplay = true; // 연산자 선택됨!
-    confirmReverse = false;
 }
 
 // Button 클릭 시 이벤트 리스너
 // 1. C 버튼: 0으로 초기화, 콘솔 출력
 // 2. dot 버튼: 이미 dot이 있는지 확인
-
-// Button 클릭 시 이벤트 리스너
 
 // 1. C 버튼
 CBtn.addEventListener('click', function () {
@@ -74,7 +70,7 @@ CBtn.addEventListener('click', function () {
     secondOperand = null;
     operator = null;
 
-    confirmReverse = false;
+    // confirmReverse = false;
     shouldClearDisplay = false; // 연산자도 초기화
 })
 
@@ -130,8 +126,6 @@ reverseBtn.addEventListener('click', function(){
     firstOperand = original;
 
     displayVariable.textContent = original + '';
-
-    confirmReverse = !confirmReverse; // 누를 때마다 반전
 })
 
 // 6. % 버튼
@@ -141,12 +135,10 @@ perBtn.addEventListener('click', function() {
 
 buttons.forEach(function (button) {
     // dot 버튼은 이미 별도로 처리하므로 무시
-    if (!button.classList.contains('dot')) {
+    if (!button.classList.contains('dot') && button.classList.contains('number')) { 
         button.addEventListener('click', function () {
-            if (button.classList.contains('number')) {
-                if (displayVariable.textContent === '0') {
-                    displayVariable.textContent = '';
-                }
+            if (displayVariable.textContent === '0') {
+                displayVariable.textContent = '';
             }
             buttonEventListener(button);
         });
