@@ -69,8 +69,7 @@ CBtn.addEventListener('click', function () {
     firstOperand = null;
     secondOperand = null;
     operator = null;
-
-    // confirmReverse = false;
+    
     shouldClearDisplay = false; // 연산자도 초기화
 })
 
